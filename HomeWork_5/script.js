@@ -1,45 +1,54 @@
 "use strict";
 //1
 /* const wannaBeer = confirm("Do you wanna beer?");
+let answer;
 
 if (wannaBeer) {
-	console.log("I was counting in this answer");
+	answer = "I was counting in this answer";
 } else {
-	console.log("Wrong choice");
+	answer = "Wrong choice";
 }
+console.log(answer);
 
-wannaBeer ? console.log("I was counting in this answer") : console.log("Wrong choice"); */
+wannaBeer ? answer = "I was counting in this answer" : answer = "Wrong choice";
+console.log(answer); */
 
 //2
 /* const userAge = prompt("How old are you?", "18");
+let greetings;
 
 if (userAge < 18) {
-	console.log("I'm sorry, you're very young!");
+	greetings = "I'm sorry, you're very young!";
 } else if (userAge < 30) {
-	console.log("What's up!");
+	greetings = "What's up!";
 } else {
-	console.log("Good day, sir!");
+	greetings = "Good day, sir!";
 }
+console.log(greetings);
 
-(userAge < 18) ? console.log("I'm sorry, you're very young!") :
-	(userAge < 30) ? console.log("What's up!") :
-		console.log("Good day, sir!"); */
+(userAge < 18) ? greetings = "I'm sorry, you're very young!" :
+	(userAge < 30) ? greetings = "What's up!" :
+		greetings = "Good day, sir!";
+console.log(greetings); */
 
 //3
 /* const teaOrCofee = confirm("Tea or Coffee. You wanna tea?");
 const sugar = confirm("Add sugar?");
+let guestDrink;
 
 if (teaOrCofee && sugar) {
-	console.log("Sweet tea");
+	guestDrink = "Sweet tea";
 } else if (teaOrCofee && !sugar) {
-	console.log("Tea without sugar");
+	guestDrink = "Tea without sugar";
 } else if (!teaOrCofee && sugar) {
-	console.log("Coffee with sugar");
+	guestDrink = "Coffee with sugar";
 } else {
-	console.log("Sugar free coffee");
+	guestDrink = "Sugar free coffee";
 }
+console.log(guestDrink);
 
-(teaOrCofee && sugar) ? console.log("Sweet tea") :
-	(teaOrCofee && !sugar) ? console.log("Tea without sugar") :
-		(!teaOrCofee && sugar) ? console.log("Coffee with sugar") :
-			console.log("Sugar free coffee"); */
+(teaOrCofee && sugar) ? guestDrink = "Sweet tea" :
+	(teaOrCofee && !sugar) ? guestDrink = "Tea without sugar" :
+		(!teaOrCofee && sugar) ? guestDrink = "Coffee with sugar" :
+			guestDrink = "Sugar free coffee";
+console.log(guestDrink); */
