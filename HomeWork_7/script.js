@@ -1,6 +1,6 @@
 "use strict";
 
-let firstValue = 0;
+/* let firstValue = 0;
 let secondValue = 1;
 let thirdValue;
 const ordinalNumber = +prompt("Which number from the Fibonacci sequence to show ?");
@@ -18,12 +18,16 @@ if (ordinalNumber === 1) {
 } else {
 	console.log(thirdValue);
 }
+ */
 
-/* const n = +prompt("Enter number", "1");
+
+const n = +prompt("Enter number", "1");
 label:
 for (let i = 2; i <= n; i++) {
 	for (let j = 2; j < i; j++) {
 		if (i % j === 0) continue label;
 	}
 	console.log(i);
-} */
+}
+
+

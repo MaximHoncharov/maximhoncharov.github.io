@@ -10,7 +10,7 @@ if (wannaBeer) {
 }
 console.log(answer);
 
-wannaBeer ? answer = "I was counting in this answer" : answer = "Wrong choice";
+answer = wannaBeer ? "I was counting in this answer" : "Wrong choice";
 console.log(answer); */
 
 //2
@@ -26,9 +26,9 @@ if (userAge < 18) {
 }
 console.log(greetings);
 
-(userAge < 18) ? greetings = "I'm sorry, you're very young!" :
-	(userAge < 30) ? greetings = "What's up!" :
-		greetings = "Good day, sir!";
+greetings = (userAge < 18) ? "I'm sorry, you're very young!" :
+	(userAge < 30) ? "What's up!" :
+		"Good day, sir!";
 console.log(greetings); */
 
 //3
@@ -47,8 +47,8 @@ if (teaOrCofee && sugar) {
 }
 console.log(guestDrink);
 
-(teaOrCofee && sugar) ? guestDrink = "Sweet tea" :
-	(teaOrCofee && !sugar) ? guestDrink = "Tea without sugar" :
-		(!teaOrCofee && sugar) ? guestDrink = "Coffee with sugar" :
-			guestDrink = "Sugar free coffee";
+guestDrink = (teaOrCofee && sugar) ? "Sweet tea" :
+	(teaOrCofee && !sugar) ? "Tea without sugar" :
+		(!teaOrCofee && sugar) ? "Coffee with sugar" :
+			"Sugar free coffee";
 console.log(guestDrink); */
