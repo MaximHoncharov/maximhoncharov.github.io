@@ -25,13 +25,20 @@ function createUser(firstName = null, lastName = null, age = null) {
 createUser()
 
 //3
-function getNumber(value, less100, over100) {
-	(value < 100) ? less100() : over100();
-	function less100() {
-		alert("Number less than 100");
-	}
-	function over100() {
-		alert("Number over than 100");
+
+function getNumber(value, firstOption, secondOption) {
+	if (+value < 100) {
+		firstOption();
+	} else {
+		secondOption();
 	}
 }
-getNumber()
+getNumber(
+	+prompt("Enter value", ""),
+	function () {
+		alert("Number less than 100");
+	},
+	function () {
+		alert("Number over than 100");
+	},
+);
