@@ -21,3 +21,4 @@ function User(firstName, lastName, age) {
 }
 const user = new User("Vasya", "Petrov", 33);
 user.greet();
+
