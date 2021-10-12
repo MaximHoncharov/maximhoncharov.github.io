@@ -8,7 +8,6 @@ function getUserLogin() {
 	const login = prompt("Enter your login", "");
 	if (login === null) {
 		messageCancel();
-		return;
 	} else {
 		return login;
 	}
@@ -21,6 +20,8 @@ function getUserPassword() {
 }
 let userLogin = getUserLogin();
 let userPass = getUserPassword();
+
+
 function messageWelcome() {
 	alert(`Hello, ${userLogin}`);
 }
@@ -80,6 +81,7 @@ function autentificationNewUser() {
 	if (letTry) {
 		userLogin = getUserLogin();
 		userPass = getUserPassword();
+		if (!userLogin) return;
 		checkUserValidation();
 	} else {
 		messageCancel();
