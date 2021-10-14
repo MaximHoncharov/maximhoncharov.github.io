@@ -6,11 +6,7 @@ const usersBase = {
 };
 function getUserLogin() {
 	const login = prompt("Enter your login", "");
-	if (login === null) {
-		messageCancel();
-	} else {
-		return login;
-	}
+	return login;
 }
 function getUserPassword() {
 	if (userLogin) {
@@ -20,8 +16,6 @@ function getUserPassword() {
 }
 let userLogin = getUserLogin();
 let userPass = getUserPassword();
-
-
 function messageWelcome() {
 	alert(`Hello, ${userLogin}`);
 }
@@ -53,9 +47,13 @@ function checkUserValidation() {
 	}
 }
 function autentification() {
-	checkUserValidation();
-	createNewUser();
-	return;
+	if (!userPass || !userLogin) {
+		return;
+	} else {
+		checkUserValidation();
+		createNewUser();
+		return;
+	}
 	if (!validUser) {
 		createNewUser()
 	}
@@ -88,5 +86,4 @@ function autentificationNewUser() {
 	}
 }
 autentification();
-
 console.log(usersBase);

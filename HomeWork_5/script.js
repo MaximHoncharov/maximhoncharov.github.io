@@ -1,6 +1,6 @@
 "use strict";
 //1
-/* const wannaBeer = confirm("Do you wanna beer?");
+const wannaBeer = confirm("Do you wanna beer?");
 let answer;
 
 if (wannaBeer) {
@@ -11,12 +11,12 @@ if (wannaBeer) {
 console.log(answer);
 
 answer = wannaBeer ? "I was counting in this answer" : "Wrong choice";
-console.log(answer); */
+console.log(answer);
+
 
 //2
-/* const userAge = prompt("How old are you?", "18");
+const userAge = prompt("How old are you?", "18");
 let greetings;
-
 if (userAge < 18) {
 	greetings = "I'm sorry, you're very young!";
 } else if (userAge < 30) {
@@ -29,26 +29,27 @@ console.log(greetings);
 greetings = (userAge < 18) ? "I'm sorry, you're very young!" :
 	(userAge < 30) ? "What's up!" :
 		"Good day, sir!";
-console.log(greetings); */
+console.log(greetings);
 
 //3
-/* const teaOrCofee = confirm("Tea or Coffee. You wanna tea?");
+const teaOrCofee = confirm("Tea or Coffee. You wanna tea?");
 const sugar = confirm("Add sugar?");
 let guestDrink;
 
 if (teaOrCofee && sugar) {
 	guestDrink = "Sweet tea";
-} else if (teaOrCofee && !sugar) {
+} else if (teaOrCofee) {
 	guestDrink = "Tea without sugar";
-} else if (!teaOrCofee && sugar) {
+} else if (sugar) {
 	guestDrink = "Coffee with sugar";
 } else {
 	guestDrink = "Sugar free coffee";
 }
 console.log(guestDrink);
 
+
 guestDrink = (teaOrCofee && sugar) ? "Sweet tea" :
 	(teaOrCofee && !sugar) ? "Tea without sugar" :
 		(!teaOrCofee && sugar) ? "Coffee with sugar" :
 			"Sugar free coffee";
-console.log(guestDrink); */
+console.log(guestDrink);
