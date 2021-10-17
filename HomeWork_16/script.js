@@ -14,5 +14,3 @@ function checkSubstring(string, substring) {
 		.toLowerCase()
 		.includes(substring.toLowerCase());
 }
-
-checkSubstring("Привет, как дела у бедеющих JSсеров", "привет")
