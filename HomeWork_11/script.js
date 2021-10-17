@@ -5,7 +5,7 @@ const usersBase = {
 	user: "321",
 };
 function getUserLogin() {
-	const login = prompt("Enter your login", "");
+	const login = prompt("Enter your login", ""); ы
 	return login;
 }
 function getUserPassword() {
