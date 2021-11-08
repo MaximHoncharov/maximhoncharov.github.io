@@ -1,13 +1,14 @@
 "use strict";
 
-function deepCopy(obj, newObj) {
+function deepCopy(obj) {
+	let cloneObject;
+	cloneObject = Array.isArray(obj) ? [] : {};
 	for (let key in obj) {
-		if (typeof obj[key] != "object") {
-			newObj[key] = obj[key];
+		if (typeof (obj[key]) === 'object' || obj === null) {
+			cloneObject[key] = deepCopy(obj[key]);
 		} else {
-			newObj[key] = {};
-			deepCopy(obj[key], newObj[key]);
+			cloneObject[key] = obj[key];
 		}
 	}
+	return cloneObject;
 }
-
