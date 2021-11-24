@@ -2,13 +2,16 @@
 
 function deepCopy(obj) {
 	let cloneObject;
-	cloneObject = Array.isArray(obj) ? [] : {};
-	for (let key in obj) {
-		if (typeof (obj[key]) === 'object' || obj[key] === null) {
-			cloneObject[key] = deepCopy(obj[key]);
-		} else {
-			cloneObject[key] = obj[key];
-		}
+	let value;
+	let key;
+	if (typeof obj !== "object" || obj === null) {
+		return obj;
 	}
-	return cloneObject;
+	cloneObject = Array.isArray(obj) ? [] : {}
+	for (key in obj) {
+		value = obj[key];
+		cloneObject[key] = deepCopy(value);
+	}
+	return cloneObject
 }
+
