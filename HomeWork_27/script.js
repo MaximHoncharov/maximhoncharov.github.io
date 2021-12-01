@@ -11,46 +11,70 @@ xhr.addEventListener('load', () => {
 	}
 })
 //2
-const addUser = new XMLHttpRequest();
-addUser.open("POST", "https://async-demo.herokuapp.com/objects/?prob=20");
-addUser.setRequestHeader("Content-type", "application/json; charset=utf-8");
-const user = JSON.stringify({
-	firstName: "Vasya",
-	lastName: "Ivanov",
-});
-addUser.send(user);
-addUser.addEventListener("load", () => {
-	if (addUser.status !== 201 && addUser.status !== 200 && addUser.status !== 204) {
-		console.error(addUser.response);
+function sendRequest(
+	method,
+	url,
+	{ body, headers = {} } = {},
+	callback
+) {
+
+	const xhr = new XMLHttpRequest();
+	xhr.open(method, url);
+	Object.keys(headers).forEach((key) => {
+		xhr.setRequestHeader(key, headers[key]);
+	});
+	xhr.send(body);
+	xhr.addEventListener('load', () => {
+		if (xhr.status != 200 && xhr.status != 201 && xhr.status != 204) {
+			callback(xhr.response);
+		} else {
+			callback(null, xhr.response);
+		}
+	});
+}
+
+const user = {
+	firstName: 'Vasya',
+	lastName: 'Ivanov',
+}
+
+sendRequest('POST', 'https://async-demo.herokuapp.com/objects?prob=0', {
+	body: JSON.stringify(user),
+	headers: {
+		'Content-type': 'application/json; charset=utf-8',
+	}
+}, (err, response) => {
+	if (err) {
+		console.error(err);
 		return;
 	}
+	let received;
 	try {
-		const userId = JSON.parse(addUser.response);
-		console.log(userId);
-		const addAge = new XMLHttpRequest();
-		addAge.open("PATCH", `https://async-demo.herokuapp.com/objects/${userId.id}/?prob=20`);
-		const age = JSON.stringify({ age: 33 });
-		addAge.setRequestHeader("Content-type", "application/json; charset=utf-8");
-		addAge.send(age);
-		addAge.addEventListener("load", () => {
-			if (addAge.status !== 201 && addAge.status !== 200 && addAge.status !== 204) {
-				console.error(addAge.response);
-				return;
-			}
-			const newUserId = JSON.parse(addAge.response);
-			console.log(newUserId);
-			const deleteUser = new XMLHttpRequest();
-			deleteUser.open("DELETE", `https://async-demo.herokuapp.com/objects/${newUserId.id}/?prob=20`);
-			deleteUser.send();
-			deleteUser.addEventListener("load", () => {
-				if (deleteUser.status !== 201 && deleteUser.status !== 200 && deleteUser.status !== 204) {
-					console.error(deleteUser.response);
-					return;
-				}
-				console.log(`DONE!`);
-			});
-		})
-	} catch (error) {
-		console.error(error);
+		received = JSON.parse(response);
+	} catch (err) {
+		console.error(err);
 	}
-})
+	const { id } = received;
+	const extension = { age: 33 };
+
+	sendRequest('PATCH', `https://async-demo.herokuapp.com/objects/${id}?prob=0`, {
+		body: JSON.stringify(extension),
+		headers: {
+			'Content-type': 'application/json; charset=utf-8',
+		}
+	}, (err) => {
+		if (err) {
+			console.error(err);
+			return;
+		}
+
+		sendRequest('DELETE', `https://async-demo.herokuapp.com/objects/${id}?prob=0`, {},
+			(err) => {
+				if (err) {
+					console.error(err);
+				} else {
+					console.log(`Delete user info`);
+				}
+			});
+	});
+});
