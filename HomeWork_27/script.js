@@ -56,7 +56,7 @@ sendRequest('POST', 'https://async-demo.herokuapp.com/objects?prob=0', {
 		console.error(err);
 	}
 	const { id } = response;
-	const extension = { age: 67 };
+	const extension = { age: 33 };
 
 	sendRequest('PATCH', `https://async-demo.herokuapp.com/objects/${id}?prob=0`, {
 		body: JSON.stringify(extension),
