@@ -27,17 +27,17 @@ function sendRequest(
 	xhr.send(body);
 
 	xhr.addEventListener('load', () => {
-		if (xhr.status !== 200 && xhr.status !== 201 && xhr.status !== 204) {
-			callback(xhr.response);
-		} else {
+		if ([200, 201, 204].includes(xhr.status)) {
 			callback(null, xhr.response);
+		} else {
+			callback(xhr.response);
 		}
 	});
 }
 
 const user = {
-	firstName: 'Rafik',
-	lastName: 'Khachaturyan',
+	firstName: 'Vasya',
+	lastName: 'Ivanov',
 };
 
 sendRequest('POST', 'https://async-demo.herokuapp.com/objects?prob=0', {
@@ -56,7 +56,7 @@ sendRequest('POST', 'https://async-demo.herokuapp.com/objects?prob=0', {
 		console.error(err);
 	}
 	const { id } = response;
-	const extension = { age: 33 };
+	const extension = { age: 67 };
 
 	sendRequest('PATCH', `https://async-demo.herokuapp.com/objects/${id}?prob=0`, {
 		body: JSON.stringify(extension),
