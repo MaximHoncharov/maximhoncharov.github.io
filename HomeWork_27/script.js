@@ -40,7 +40,7 @@ const user = {
 	lastName: 'Ivanov',
 };
 
-sendRequest('POST', 'https://async-demo.herokuapp.com/objects?prob=0', {
+sendRequest('POST', 'https://async-demo.herokuapp.com/objects?prob=20', {
 	body: JSON.stringify(user),
 	headers: {
 		'Content-type': 'application/json; charset=utf-8',
@@ -58,7 +58,7 @@ sendRequest('POST', 'https://async-demo.herokuapp.com/objects?prob=0', {
 	const { id } = response;
 	const extension = { age: 33 };
 
-	sendRequest('PATCH', `https://async-demo.herokuapp.com/objects/${id}?prob=0`, {
+	sendRequest('PATCH', `https://async-demo.herokuapp.com/objects/${id}?prob=20`, {
 		body: JSON.stringify(extension),
 		headers: {
 			'Content-type': 'application/json; charset=utf-8',
@@ -68,7 +68,7 @@ sendRequest('POST', 'https://async-demo.herokuapp.com/objects?prob=0', {
 			console.error(err);
 			return;
 		}
-		sendRequest('DELETE', `https://async-demo.herokuapp.com/objects/${id}?prob=0`, {},
+		sendRequest('DELETE', `https://async-demo.herokuapp.com/objects/${id}?prob=20`, {},
 			(err) => {
 				if (err) {
 					console.error(err);
@@ -78,3 +78,6 @@ sendRequest('POST', 'https://async-demo.herokuapp.com/objects?prob=0', {
 			});
 	});
 });
+
+//Bonus
+
