@@ -1,6 +1,6 @@
 "use strict";
 //1
-/* const xhr = new XMLHttpRequest();
+const xhr = new XMLHttpRequest();
 xhr.open('GET', '/unstable?maxRandom=20&prob=50');
 xhr.send();
 xhr.addEventListener('load', () => {
@@ -9,9 +9,9 @@ xhr.addEventListener('load', () => {
 	} else {
 		console.log('Hello world '.repeat(xhr.response));
 	}
-}) */
+})
 //2
-/* function sendRequest(
+function sendRequest(
 	method,
 	url,
 	{ body, headers = {} } = {},
@@ -77,7 +77,7 @@ sendRequest('POST', 'https://async-demo.herokuapp.com/objects?prob=20', {
 				}
 			});
 	});
-}); */
+});
 
 //Bonus
 
